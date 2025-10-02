@@ -1,0 +1,13 @@
+/home/sammy/webGit/website/build/linux/x64/debug/bundle/website
+/home/sammy/webGit/website/build/linux/x64/debug/bundle/data/icudtl.dat
+/home/sammy/webGit/website/build/linux/x64/debug/bundle/lib/libflutter_linux_gtk.so
+/home/sammy/webGit/website/build/linux/x64/debug/bundle/data/flutter_assets/NOTICES.Z
+/home/sammy/webGit/website/build/linux/x64/debug/bundle/data/flutter_assets/NativeAssetsManifest.json
+/home/sammy/webGit/website/build/linux/x64/debug/bundle/data/flutter_assets/fonts/MaterialIcons-Regular.otf
+/home/sammy/webGit/website/build/linux/x64/debug/bundle/data/flutter_assets/FontManifest.json
+/home/sammy/webGit/website/build/linux/x64/debug/bundle/data/flutter_assets/packages/cupertino_icons/assets/CupertinoIcons.ttf
+/home/sammy/webGit/website/build/linux/x64/debug/bundle/data/flutter_assets/kernel_blob.bin
+/home/sammy/webGit/website/build/linux/x64/debug/bundle/data/flutter_assets/AssetManifest.bin
+/home/sammy/webGit/website/build/linux/x64/debug/bundle/data/flutter_assets/AssetManifest.json
+/home/sammy/webGit/website/build/linux/x64/debug/bundle/data/flutter_assets/version.json
+/home/sammy/webGit/website/build/linux/x64/debug/bundle/data/flutter_assets/shaders/ink_sparkle.frag
