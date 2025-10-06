@@ -2,9 +2,8 @@
 
 My personal website built in the flutter framework!
 
-## Getting Started
+## Info about design
 
-Info about design-
 
 Frontend - Flutter
 Wordle - REST API built in Rust (see WordleRust repo)
