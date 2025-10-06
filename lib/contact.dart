@@ -1,7 +1,7 @@
 import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
-
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 class ContactPage extends StatefulWidget {
 const ContactPage({super.key});
 
@@ -21,9 +21,9 @@ if (!_formKey.currentState!.validate()) return;
 
 setState(() => _isSending = true);
 
-const serviceId = 'Nope';
-const templateId = 'Nope';
-const userId = 'Nope';
+String serviceId = dotenv.env['service_id'].toString();
+String templateId = dotenv.env['template_id'].toString();
+String userId = dotenv.env['user_id'].toString();
 
 try {
   final response = await http.post(

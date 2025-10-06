@@ -2,7 +2,7 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:flutter/services.dart';
-
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 enum LetterState { absent, yellow, green }
 
 class Letter {
@@ -29,6 +29,7 @@ class _WordlePageState extends State<WordlePage> {
   void initState() {
     super.initState();
     rows.add(List.generate(maxCols, (_) => Letter()));
+    
   }
 
   Color _getColor(LetterState state) {
@@ -105,7 +106,6 @@ class _WordlePageState extends State<WordlePage> {
 
   Future<void> _getSuggestions() async {
     final payload = <Map<String, String>>[];
-
     for (final row in rows) {
       final word = row.map((l) => l.letter.toLowerCase()).join();
       if (word.length != 5) continue; // Only full words
@@ -133,8 +133,9 @@ class _WordlePageState extends State<WordlePage> {
     });
 
     try {
+      await dotenv.load(fileName: ".env");
       final response = await http.post(
-        Uri.parse(':D'),
+        Uri.parse(dotenv.env['wordle_api'].toString()),
         headers: {'Content-Type': 'application/json'},
         body: jsonEncode(payload),
       );

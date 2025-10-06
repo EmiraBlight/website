@@ -3,6 +3,7 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:http/http.dart' as http;
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 
 class EncryptPage extends StatefulWidget {
 const EncryptPage({super.key});
@@ -54,8 +55,8 @@ setState(() {
   _isLoading = true;
   _result = null;
 });
-
-final url = Uri.parse(":D");
+await dotenv.load(fileName: ".env");
+Uri url = Uri.parse(dotenv.env['encrypt_api'].toString());
 final payload = {
   "text": text,
   "string": keyString,
@@ -97,7 +98,7 @@ return Scaffold(
 appBar: AppBar(title: const Text("Encrypt / Decrypt"),centerTitle: true,),
 body: Center(
 child: ConstrainedBox(
-constraints: const BoxConstraints(maxWidth: 500),
+constraints: const BoxConstraints(maxWidth: 1000),
 child: SingleChildScrollView(
 padding: const EdgeInsets.all(30),
 child: Card(
