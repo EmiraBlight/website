@@ -21,13 +21,13 @@ if (!_formKey.currentState!.validate()) return;
 
 setState(() => _isSending = true);
 
-const serviceId = ':D';
-const templateId = ':D';
-const userId = ':D';
+const serviceId = 'Nope';
+const templateId = 'Nope';
+const userId = 'Nope';
 
 try {
   final response = await http.post(
-    Uri.parse('Nope'),
+    Uri.parse('https://api.emailjs.com/api/v1.0/email/send'),
     headers: {'Content-Type': 'application/json'},
     body: jsonEncode({
       'service_id': serviceId,
@@ -65,7 +65,6 @@ try {
 @override
 Widget build(BuildContext context) {
   return Scaffold(
-    appBar: AppBar(title: const Text("Contact Me")),
     body: Center(
       child: SingleChildScrollView(
       padding: const EdgeInsets.all(24),
@@ -148,7 +147,7 @@ Widget build(BuildContext context) {
                       : const Text(
                           "Send Message",
                           style: TextStyle(
-                              fontSize: 18, fontWeight: FontWeight.bold),
+                              fontSize: 18, fontWeight: FontWeight.bold, color: Colors.black),
                         ),
                 ),
               ),
