@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:flutter/services.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
+
 enum LetterState { absent, yellow, green }
 
 class Letter {
@@ -29,7 +30,6 @@ class _WordlePageState extends State<WordlePage> {
   void initState() {
     super.initState();
     rows.add(List.generate(maxCols, (_) => Letter()));
-    
   }
 
   Color _getColor(LetterState state) {
@@ -88,8 +88,9 @@ class _WordlePageState extends State<WordlePage> {
       if (currentRowLetters.length != 5) {
         ScaffoldMessenger.of(context).showSnackBar(
           const SnackBar(
-            content:
-                Text('Complete the current 5-letter word before pressing Enter'),
+            content: Text(
+              'Complete the current 5-letter word before pressing Enter',
+            ),
           ),
         );
         return;
@@ -142,8 +143,8 @@ class _WordlePageState extends State<WordlePage> {
 
       if (response.statusCode == 200) {
         final decoded = jsonDecode(response.body);
-        final List<String> results =
-            (decoded['guesses'] as List<dynamic>).cast<String>();
+        final List<String> results = (decoded['guesses'] as List<dynamic>)
+            .cast<String>();
         setState(() {
           suggestions = results;
         });
@@ -166,7 +167,11 @@ class _WordlePageState extends State<WordlePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Center(child: const Text("Wordle Helper",textAlign: TextAlign.center,))),
+      appBar: AppBar(
+        title: Center(
+          child: const Text("Wordle Helper", textAlign: TextAlign.center),
+        ),
+      ),
       body: RawKeyboardListener(
         focusNode: FocusNode()..requestFocus(),
         onKey: _handleKey,
@@ -202,7 +207,9 @@ class _WordlePageState extends State<WordlePage> {
                             child: Text(
                               letter,
                               style: const TextStyle(
-                                  fontSize: 24, fontWeight: FontWeight.bold),
+                                fontSize: 24,
+                                fontWeight: FontWeight.bold,
+                              ),
                             ),
                           ),
                         );
@@ -236,7 +243,9 @@ class _WordlePageState extends State<WordlePage> {
                         title: Text(
                           suggestions[index],
                           style: const TextStyle(
-                              fontWeight: FontWeight.bold, fontSize: 18),
+                            fontWeight: FontWeight.bold,
+                            fontSize: 18,
+                          ),
                         ),
                       ),
                     );
